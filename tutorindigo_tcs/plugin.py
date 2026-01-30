@@ -120,7 +120,7 @@ for mfe in tcs_styled_mfes:
             (
                 f"mfe-dockerfile-post-npm-install-{mfe}",
                 """
-RUN npm install '@edx/brand@github:True-Course-Simulations/tcs-brand-openedx#main'
+RUN npm install '@edx/brand@git+https://github.com/True-Course-Simulations/tcs-brand-openedx.git#tcs-default'
 """,  # noqa: E501
             ),
         ]
@@ -129,7 +129,7 @@ RUN npm install '@edx/brand@github:True-Course-Simulations/tcs-brand-openedx#mai
 hooks.Filters.ENV_PATCHES.add_item(
     (
         "mfe-dockerfile-post-npm-install-authn",
-        "RUN npm install '@edx/brand@github:True-Course-Simulations/tcs-brand-openedx#main'",
+        "RUN npm install '@edx/brand@git+https://github.com/True-Course-Simulations/tcs-brand-openedx.git#tcs-default'",
     )
 )
 
