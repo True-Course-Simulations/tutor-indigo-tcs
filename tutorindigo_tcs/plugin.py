@@ -22,7 +22,7 @@ config: t.Dict[str, t.Dict[str, t.Any]] = {
     "defaults": {
         "VERSION": __version__,
         "WELCOME_MESSAGE": "The place for all your online learning",
-        "PRIMARY_COLOR": "#15376D",  # TCS
+        "PRIMARY_COLOR": "#144ea2",  # TCS dark blue
         "ENABLE_DARK_TOGGLE": True,
         # Footer links are dictionaries with a "title" and "url"
         # To remove all links, run:
@@ -43,7 +43,7 @@ config: t.Dict[str, t.Dict[str, t.Any]] = {
 
 # Theme templates
 hooks.Filters.ENV_TEMPLATE_ROOTS.add_item(
-    str(importlib_resources.files("tutorindigo-tcs") / "templates")
+    str(importlib_resources.files("tutorindigo_tcs") / "templates")
 )
 # This is where the theme is rendered in the openedx build directory
 hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
@@ -66,7 +66,7 @@ hooks.Filters.ENV_PATTERNS_INCLUDE.add_items(
 # init script: set theme automatically
 with open(
     os.path.join(
-        str(importlib_resources.files("tutorindigo-tcs") / "templates"),
+        str(importlib_resources.files("tutorindigo_tcs") / "templates"),
         "tcs-default",
         "tasks",
         "init.sh",
@@ -89,9 +89,9 @@ def _override_openedx_docker_image(
         elif k == "MFE_DOCKER_IMAGE":
             mfe_image = v
     if openedx_image:
-        items.append(("DOCKER_IMAGE_OPENEDX", f"{openedx_image}-tcs"))
+        items.append(("DOCKER_IMAGE_OPENEDX", f"{openedx_image}-indigo"))
     if mfe_image:
-        items.append(("MFE_DOCKER_IMAGE", f"{mfe_image}-tcs"))
+        items.append(("MFE_DOCKER_IMAGE", f"{mfe_image}-indigo"))
     return items
 
 
@@ -120,7 +120,7 @@ for mfe in tcs_styled_mfes:
             (
                 f"mfe-dockerfile-post-npm-install-{mfe}",
                 """
-RUN npm install '@edx/brand@github:True-Course-Simulations/tcs-brand-openedx#tcs-default'
+RUN npm install '@edx/brand@github:True-Course-Simulations/tcs-brand-openedx#main'
 """,  # noqa: E501
             ),
         ]
@@ -129,7 +129,7 @@ RUN npm install '@edx/brand@github:True-Course-Simulations/tcs-brand-openedx#tcs
 hooks.Filters.ENV_PATCHES.add_item(
     (
         "mfe-dockerfile-post-npm-install-authn",
-        "RUN npm install '@edx/brand@github:True-Course-Simulations/tcs-brand-openedx#tcs-default'",
+        "RUN npm install '@edx/brand@github:True-Course-Simulations/tcs-brand-openedx#main'",
     )
 )
 
@@ -142,7 +142,7 @@ hooks.Filters.ENV_PATCHES.add_items(
             "openedx-common-assets-settings",
             """
 javascript_files = ['base_application', 'application', 'certificates_wv']
-dark_theme_filepath = ['tcs/js/dark-theme.js']
+dark_theme_filepath = ['tcs-default/js/dark-theme.js']
 
 for filename in javascript_files:
     if filename in PIPELINE['JAVASCRIPT']:
@@ -154,7 +154,7 @@ for filename in javascript_files:
             "openedx-lms-development-settings",
             """
 javascript_files = ['base_application', 'application', 'certificates_wv']
-dark_theme_filepath = ['tcs/js/dark-theme.js']
+dark_theme_filepath = ['tcs-default/js/dark-theme.js']
 
 for filename in javascript_files:
     if filename in PIPELINE['JAVASCRIPT']:
@@ -178,7 +178,7 @@ MFE_CONFIG['TCS_FOOTER_NAV_LINKS'] = {{ TCS_FOOTER_NAV_LINKS }}
 # Apply patches from tutor-tcs
 for path in glob(
     os.path.join(
-        str(importlib_resources.files("tutorindigo-tcs") / "patches"),
+        str(importlib_resources.files("tutorindigo_tcs") / "patches"),
         "*",
     )
 ):
