@@ -21,16 +21,15 @@ config: t.Dict[str, t.Dict[str, t.Any]] = {
     # Add here your new settings
     "defaults": {
         "VERSION": __version__,
-        "WELCOME_MESSAGE": "The place for all your online learning",
+        "WELCOME_MESSAGE": "Train smarter. Fly confident. Learn with immersive, real-world flight simulation.",
         "PRIMARY_COLOR": "#144ea2",  # TCS dark blue
         "ENABLE_DARK_TOGGLE": True,
         # Footer links are dictionaries with a "title" and "url"
         # To remove all links, run:
         # tutor config save --set TCS_FOOTER_NAV_LINKS=[]
         "FOOTER_NAV_LINKS": [
-            {"title": "About Us", "url": "/about"},
-            {"title": "Blog", "url": "/blog"},
-            {"title": "Donate", "url": "/donate"},
+            {"title": "About Us", "url": "https://tcsims.com/about-us/"},
+            {"title": "News", "url": "https://tcsims.com/news-and-articles/"},
             {"title": "Terms of Service", "url": "/tos"},
             {"title": "Privacy Policy", "url": "/privacy"},
             {"title": "Help", "url": "/help"},
