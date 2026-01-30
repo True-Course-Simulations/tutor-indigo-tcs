@@ -2,6 +2,8 @@
 
 This file includes a history of past releases. Changes that were not yet added to a release are in the [changelog.d/](./changelog.d) folder.
 
+Note: This fork is rebranded for True Course Simulations (TCS). Historical entries may still reference "Indigo".
+
 <!--
 ⚠️ DO NOT ADD YOUR CHANGES TO THIS FILE! (unless you want to modify existing changelog entries in this file)
 Changelog entries are managed by scriv. After you have made some changes to this plugin, create a changelog entry with:
@@ -173,7 +175,7 @@ instructions, because git commits are used to generate release notes:
 
 - 💥[Improvement] Allow the no_course_image.png image to pull from the current theme, not specifically named indigo (by @misilot)
 
-- [Improvement] Remove mentions of INDIGO_FOOTER_LEGAL_LINKS in docs since it is no longer used by the plugin. (by @misilot)
+- [Improvement] Remove mentions of TCS_FOOTER_LEGAL_LINKS in docs since it is no longer used by the plugin. (by @misilot)
 
 - [Improvement] Style static pages of About, Contact, Privacy and bookmarks page (by @tanveer65)
 
@@ -196,3 +198,4 @@ instructions, because git commits are used to generate release notes:
 - 💥[Feature] Upgrade to Quince (by @hinakhadim)
 - [Improvement] Add a scriv-compliant changelog. (by @regisb)
 - [Improvement] Added Makefile and test action to repository and formatted code with Black and isort. (by @CodeWithEmad)
+
