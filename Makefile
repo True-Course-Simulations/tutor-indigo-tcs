@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := help
 .PHONY: docs
-SRC_DIRS = ./tutorindigo-tcs
+SRC_DIRS = ./tutorindigo_tcs
 
 # Warning: These checks are not necessarily run on every PR.
 test: test-lint test-types test-format test-pythonpackage # Run some static checks.
@@ -33,7 +33,7 @@ changelog: ## Collect changelog entries in the CHANGELOG.md file.
 	scriv collect
 
 version: ## Print the current tutor-tcs version
-	@python -c 'import io, os; about = {}; exec(io.open(os.path.join("tutorindigo-tcs", "__about__.py"), "rt", encoding="utf-8").read(), about); print(about["__version__"])'
+	@python -c 'import io, os; about = {}; exec(io.open(os.path.join("tutorindigo_tcs", "__about__.py"), "rt", encoding="utf-8").read(), about); print(about["__version__"])'
 
 ESCAPE = 
 help: ## Print this help

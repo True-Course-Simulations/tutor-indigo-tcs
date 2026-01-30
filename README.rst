@@ -21,13 +21,13 @@ Install and enable the TCS plugin::
 
 The TCS theme will be automatically enabled if you have not previously defined a theme. To override an existing theme, use the `settheme command <https://docs.tutor.edly.io/local.html#setting-a-new-theme>`__::
 
-    tutor local do settheme tcs
+    tutor local do settheme tcs-default
 
 Configuration
 -------------
 
 - ``TCS_WELCOME_MESSAGE`` (default: "The place for all your online learning")
-- ``TCS_PRIMARY_COLOR`` (default: "#15376D")
+- ``TCS_PRIMARY_COLOR`` (default: "#144ea2")
 - ``TCS_FOOTER_NAV_LINKS`` (default: ``[{"title": "About Us", "url": "/about"}, {"title": "Blog", "url": "/blog"}, {"title": "Donate", "url": "/donate"}, {"title": "Terms of Service", "url": "/tos"}, {"title": "Privacy Policy", "url": "/privacy"}, {"title": "Help", "url": "/help"}, {"title": "Contact Us", "url": "/contact"}]``)
 - ``TCS_ENABLE_DARK_TOGGLE`` (default: True)
 
@@ -73,13 +73,13 @@ To deploy your changes to production, you will have to rebuild the "openedx" Doc
 Changing the Styling in Sass files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To customize the theme stylesheets, modify the files in the ``tutorindigo/templates/tcs/lms/static/sass/`` and  ``tutorindigo/templates/tcs/cms/static/sass/`` directories. In particular, the ``_extras.scss`` files should contain most styling rules.
+To customize the theme stylesheets, modify the files in the ``tutorindigo_tcs/templates/tcs-default/lms/static/sass/`` and  ``tutorindigo_tcs/templates/tcs-default/cms/static/sass/`` directories. In particular, the ``_extras.scss`` files should contain most styling rules.
 
 
 Changing the default logo and other images
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The theme images are stored in `tutorindigo/templates/tcs/lms/static/images <https://github.com/True-Course-Simulations/tutor-indigo-tcs/tree/release/tutorindigo/templates/tcs/lms/static/images>`__ for the LMS, and in `tutorindigo/templates/tcs/cms/static/images <https://github.com/True-Course-Simulations/tutor-indigo-tcs/tree/release/tutorindigo/templates/tcs/cms/static/images>`__ for the CMS. To use custom images in your theme, just replace the files stored in these folders with your own.
+The theme images are stored in `tutorindigo_tcs/templates/tcs-default/lms/static/images <https://github.com/True-Course-Simulations/tutor-indigo-tcs/tree/release/tutorindigo_tcs/templates/tcs-default/lms/static/images>`__ for the LMS, and in `tutorindigo_tcs/templates/tcs-default/cms/static/images <https://github.com/True-Course-Simulations/tutor-indigo-tcs/tree/release/tutorindigo_tcs/templates/tcs-default/cms/static/images>`__ for the CMS. To use custom images in your theme, just replace the files stored in these folders with your own.
 
 Overriding the default "about", "contact", etc. static pages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -88,7 +88,7 @@ By default, the ``/about`` and ``/contact`` pages contain a simple line of text:
 
 The static templates used by Open edX to render those pages are all stored in the `edx-platform/lms/templates/static_templates <https://github.com/edx/edx-platform/tree/open-release/sumac.master/lms/templates/static_templates>`__ folder. To override those templates, you should add your own in the following folder::
 
-    ls tutorindigo/templates/tcs/lms/templates/static_templates"
+    ls tutorindigo_tcs/templates/tcs-default/lms/templates/static_templates"
 
 For instance, edit the "donate.html" file in this directory. We can derive the content of this file from the contents of the `donate.html <https://github.com/edx/edx-platform/blob/open-release/sumac.master/lms/templates/static_templates/donate.html>`__ static template in edx-platform:
 

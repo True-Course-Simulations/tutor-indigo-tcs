@@ -1,26 +1,33 @@
+$tcs-red: #d52028;
+$tcs-grey: #587182;
+$tcs-light-blue: #57b1e4;
+$tcs-dark-blue: #144ea2;
+$tcs-charcoal: #1b1e1c;
+
 $primary: {{ TCS_PRIMARY_COLOR }};
-$primary-light: #F2F7F8;
+$primary-light: #e8f3fb;
+$secondary: $tcs-grey;
 
 // Theme fonts
-$font-family-title: 'Inter', sans-serif;
-$serif: Crimson;
-$f-sans-serif: Crimson, 'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif;
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+$font-family-title: 'IBM Plex Sans', 'Inter', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$serif: $font-family-title;
+$f-sans-serif: $font-family-title;
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
 // Initialize the Open edX Bootstrap theme
 @import 'edx-bootstrap/sass/open-edx/theme';
 
 
 // Introducing new variables
 
-$dark: #111827;
-$light-dark: #374151;
+$dark: $tcs-charcoal;
+$light-dark: $tcs-grey;
 $big-screen: 1200px;
 
 
 
 // Introducing dark-theme variables
 
-$primary-d: #AEC7F6;
+$primary-d: #8bb7f0;
 $primary-light-d: #292A2C;
 $gray-light: #E5E7EB;
 $gray-lighter: #c8c8c8;
@@ -29,9 +36,9 @@ $text-color-d: #F8F8F8;
 $text-color-primary: #DDDFE2;
 $border-color-d: #777792;
 $light-overlay-d: #36383B;
-$danger-d: #FFA07A;
-$success-d: #54CF5E;
-$btn-color-d: #112F6B;
+$danger-d: #ff9c9c;
+$success-d: #5fd388;
+$btn-color-d: $tcs-charcoal;
 $body-bg-d: #0D0D0E;
 
 $instructor-input-border-color: $gray-lighter;
