@@ -201,10 +201,10 @@ const ToggleThemeButton = () => {
       <div className="light-theme-icon">
         <Icon src={WbSunny} />
       </div>
-      <div className="toggle-switch">
-        <label htmlFor="theme-toggle-checkbox" className="switch">
+      <div id="toggle-switch" className="toggle-switch">
+        <label className="switch">
           <input
-            id="theme-toggle-checkbox"
+            id="toggle-switch-input"
             defaultChecked={getCookie(themeCookie) === "dark"}
             onChange={onToggleTheme}
             onKeyUp={hanldeKeyUp}
@@ -212,11 +212,12 @@ const ToggleThemeButton = () => {
             title={intl.formatMessage(messages["header.user.theme"])}
           />
           <span className="slider round" />
-          <span id="theme-label" className="sr-only">{`Switch to ${
-            isDarkThemeEnabled ? "Light" : "Dark"
-          } Mode`}</span>
+          <span id="theme-label" className="sr-only">
+            {`Switch to ${isDarkThemeEnabled ? "Light" : "Dark"} Mode`}
+          </span>
         </label>
       </div>
+
       <div className="dark-theme-icon">
         <Icon src={Nightlight} />
       </div>
