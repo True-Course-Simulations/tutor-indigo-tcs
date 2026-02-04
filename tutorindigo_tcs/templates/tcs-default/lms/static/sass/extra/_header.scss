@@ -26,169 +26,154 @@ body {
 }
 
 header.global-header {
-    border: none;
-    padding: 0;
-    overflow: visible;
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 3px 0px rgba(0, 0, 0, 0.10);
-    &:after {
-        content: "";
-        clear: both;
-        display: block;
+  // keep header stable
+  .main-header {
+    display: flex;              // KEEP flex on all breakpoints
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;               // desktop header height
+  }
+
+  // logo sizing + alignment
+  .header-logo {
+    margin: 0;
+
+    a {
+      margin: 0;                // remove the top margin that was pushing it down
+      display: flex;
+      align-items: center;
+      height: 100%;
     }
+
+    .logo {
+      height: 40px;             // bigger logo on desktop
+      width: auto;
+      display: block;
+    }
+  }
+
+  // nav layout: left tab + right controls aligned in one row
+  .nav-links {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 28px;          // spacing after logo
+    width: auto;                // don't force 100% in a way that fights flex
+  }
+
+  .nav-links .main {
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-links .secondary {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
+  }
+
+  // make the "Discover courses" align to header height
+  .nav-links .main .nav-tab a {
+    display: flex;
+    align-items: center;
+    height: 72px;               // matches header height
+    padding: 0 0;               // remove 20px vertical padding
+    margin-right: 16px;
+  }
+
+  // make the right buttons align nicely
+  .btn-holder {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn-holder a.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    line-height: 1;          // KEY: kills baseline drift
+    height: 40px;            // visually matches your design
+    padding: 0 16px;         // horizontal only
+
+    box-sizing: border-box;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  // hamburger alignment (mobile only typically, but keep it sane)
+  .hamburger-menu {
+    position: static !important;   // critical: stops overlay
+    left: auto !important;
+    top: auto !important;
+    margin: 0;                     // spacing handled by gap
+    flex: 0 0 auto;
+  }
+
+  // Mobile tuning
+  @include media-breakpoint-down(md) {
+    // 3-column mobile header: [hamburger] [center logo] [right controls]
     .main-header {
+      display: grid !important;
+      grid-template-columns: 44px 1fr auto; // left, center, right
+      align-items: center;
+      height: 56px;
+      column-gap: 8px;
+    }
+
+    .hamburger-menu {
+      position: static !important;   // keep it in the layout
+      grid-column: 1;
+      justify-self: start;
+      margin: 0;
+      z-index: 2;
+    }
+
+    .header-logo {
+      grid-column: 2;
+      justify-self: center;          // TRUE centered
+      margin: 0;
+      z-index: 1;
+
+      a {
         display: flex;
         align-items: center;
-        height: 50px;
-
-        @include media-breakpoint-up(lg) {
-            display: unset;
-            height: auto;
-        }
-    }
-    .header-logo {
+        height: 56px;
         margin: 0;
-        a {
-            margin: 15px 0 15px 35px;
-            height: auto;
-            @include media-breakpoint-up(lg) {
-                margin: 0;
-                margin: 20px 0 0;
-            }
-            .logo {
-                height: 24px;
-                margin: 0;
-            }
-        }
-        .course-header {
-            display: none;
-        }
-    }
-    .nav-links {
-        width: 100%;
-        .main {
-            margin: 0 0 0 38px;
-            .nav-tab {
-                a {
-                    font-size: 14px;
-                    font-weight: 500;
-                    line-height: 22px;
-                    padding: 20px 0;
-                    color: $light-dark;
-                    margin: 0 16px 0 0;
-                    border-bottom: 2px solid transparent;
-                    &.active, &:hover {
-                        color: $dark;
-                        border-bottom: 2px solid $primary;
-                    }
-                }
-            }
-        }
-        .secondary {
-            margin: 0;
-            position: relative;
-            justify-content: end;
-            .toggle-user-dropdown {
-                padding: 9px 15px;
-                background: $primary-light;
-                color: $primary;
-                font-size: 14px;
-                font-weight: 500;
-                line-height: 20px;
-                border-radius: 6px;
-                margin: 12px 0;
-                &:after {
-                    margin: 4px 0 0 4px;
-                    border: 2px solid #15376D;
-                    border-width: 2px 2px 0 0;
-                    transform: rotate(135deg);
-                    content: "";
-                    height: 5px;
-                    position: relative;
-                    top: 2px;
-                    width: 5px;
-                    display: inline-block;
-                    vertical-align: top;
-                }
-                .username {
-                    font: -webkit-control;
-                }
-            }
-            .dropdown-user-menu {
-                position: absolute;
-                right: 0;
-                top: 60px;
-                width: 224px;
-                border-radius: 6px;
-                box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05), 0px 4px 6px -2px rgba(0, 0, 0, 0.05), 0px 10px 15px -3px rgba(0, 0, 0, 0.10);
-                border: none;
-                overflow: hidden;
-                .dropdown-item {
-                    border: none !important;
-                    &.hide-desktop {
-                        @include media-breakpoint-up(lg) {
-                            display: none;
-                        }
-                    }
-                    a {
-                        box-sizing: border-box;
-                        padding: 10px;
-                        font-size: 14px;
-                        line-height: 20px;
-                        color: $light-dark;
-                        &:hover {
-                            background: $primary-light;
-                            color: $dark;                         ;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    .hamburger-menu {
-        height: 17px;
-        width: 20px;
-        left: 15px;
-        top: 18px;
-        background: none;
-        border: 0;
-        padding: 0;
-        box-shadow: none;
+      }
 
-        .line {
-            height: 2px;
-            &:nth-child(2), &:nth-child(3) {
-                top: 6px;
-            }
-            &:nth-child(4) {
-                top: 12px;
-            }
-        }
+      .logo {
+        height: 32px;
+        width: auto;
+        display: block;
+      }
     }
+
+    // Whatever contains your right-side icons/buttons
+    .nav-links {
+      grid-column: 3;
+      justify-self: end;
+      margin-left: 0;
+      width: auto;
+      min-width: 0;
+    }
+  }
 }
+
+// Keep mobile menu positioned under the real header height
 .mobile-menu {
-    position: absolute;
-    left: 0;
-    top: 54px;
-    z-index: 9999;
-    margin: 0;
-    border: none;
-    border-bottom: 2px solid $primary;
-    width: 100%;
-    .mobile-nav-link {
-        a {
-            font-weight: normal;
-            padding: 16px;
-            font-size: 14px;
-            line-height: 20px;
-            color: $light-dark;
-            border: none;
-            &:hover, &.active {
-                background: $primary-light;
-                color: $dark;
-            }
-        }
-    }
+  top: 72px;
+
+  @include media-breakpoint-down(md) {
+    top: 56px;
+  }
 }
+
 .header-container {
     margin: 0 auto;
     padding: 0 15px;
@@ -221,7 +206,7 @@ header.global-header {
         }
     }
 
-    #toggle-switch {
+    .toggle-switch {
         display: flex;
         margin: 0 5px;
 
@@ -229,7 +214,7 @@ header.global-header {
             margin: 0;
         }
 
-/* The switch - the box around the slider */
+    /* The switch - the box around the slider */
         .switch {
             position: relative;
             display: inline-block;
