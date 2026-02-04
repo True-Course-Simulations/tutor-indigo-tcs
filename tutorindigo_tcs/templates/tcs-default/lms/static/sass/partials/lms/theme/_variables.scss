@@ -4,8 +4,8 @@ $tcs-light-blue: #57b1e4;
 $tcs-dark-blue: #144ea2;
 $tcs-charcoal: #1b1e1c;
 
-$primary: {{ TCS_PRIMARY_COLOR }};
-$primary-light: #e8f3fb;
+$primary: $tcs-dark-blue;
+$primary-light: $tcs-light-blue;
 $secondary: $tcs-grey;
 
 // Theme fonts
