@@ -25,29 +25,42 @@ $big-screen: 1200px;
 
 
 
-// Introducing dark-theme variables
+// --- Dark theme variables (TCS-aligned) ---
 
-$primary-d: #8bb7f0;
-$primary-light-d: #292A2C;
-$gray-light: #E5E7EB;
-$gray-lighter: #c8c8c8;
-$light-dark-d: #374151;
-$text-color-d: #F8F8F8;
-$text-color-primary: #DDDFE2;
-$border-color-d: #777792;
-$light-overlay-d: #36383B;
-$danger-d: #ff9c9c;
-$success-d: #5fd388;
+$body-bg-d: #121413;              // slightly lifted from $tcs-charcoal
+$primary-d: $tcs-light-blue;      // #57b1e4 (main accent)
+$primary-light-d: #1f2a33;        // subtle surface highlight
+
+$dark-d: $tcs-charcoal;           // #1b1e1c
+$light-dark-d: #2a3238;           // dark UI surfaces
+
+// Text
+$text-color-d: #f3f4f6;           // main text
+$text-color-primary: #e5e7eb;     // headings / emphasis
+$gray-light: #9ca3af;             // muted text
+$gray-lighter: #6b7280;
+
+// Borders & dividers
+$border-color-d: #374151;
+
+// Overlays & cards
+$light-overlay-d: #1f2933;
+
+// Status colors (softened for dark mode)
+$danger-d: #ff8a8a;
+$success-d: #4ade80;
+$warning-400: #fde047;
+$warning-700: #b45309;
+$warning-accent-700: #fffbeb;
+
+// Buttons
 $btn-color-d: $tcs-charcoal;
-$body-bg-d: #0D0D0E;
 
-$instructor-input-border-color: $gray-lighter;
-$light-theme-switch-bg-color: #1D386A;
-$dark-theme-switch-bg-color: #717D8A;
+// Theme switch
+$light-theme-switch-bg-color: $tcs-dark-blue;
+$dark-theme-switch-bg-color: $tcs-grey;
 
-$warning-400: #ffe340;
-$warning-700: #9c4607;
-$warning-accent-700: #fffcf5;
+// Misc
+$page-color-transition: background-color .2s ease, color .2s ease;
 
-$page-color-transition: transparent .2s ease, color .2s ease;
 
