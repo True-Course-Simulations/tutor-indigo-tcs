@@ -1,11 +1,14 @@
-$tcs-red: #d52028;
+$tcs-red: #d61f27;
 $tcs-grey: #587182;
+$tcs-darkest-grey: #141617;
+$tcs-dark-grey: #20262b;
 $tcs-light-blue: #57b1e4;
 $tcs-dark-blue: #144ea2;
 $tcs-charcoal: #1b1e1c;
+$tcs-grey-blue: #587082;
 
-$primary: {{ TCS_PRIMARY_COLOR }};
-$secondary: $tcs-grey;
+$primary: $tcs-dark-blue;
+$secondary: $tcs-dark-grey;
 
 $blue: $primary !default;
 $m-blue-d1: mix(white, $primary, 5%) !default;

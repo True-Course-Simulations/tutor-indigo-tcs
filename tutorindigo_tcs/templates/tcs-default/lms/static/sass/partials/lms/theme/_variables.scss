@@ -1,12 +1,15 @@
-$tcs-red: #d52028;
+$tcs-red: #d61f27;
 $tcs-grey: #587182;
+$tcs-darkest-grey: #141617;
+$tcs-dark-grey: #20262b;
 $tcs-light-blue: #57b1e4;
 $tcs-dark-blue: #144ea2;
 $tcs-charcoal: #1b1e1c;
+$tcs-grey-blue: #587082;
 
 $primary: $tcs-dark-blue;
+$secondary: $tcs-dark-grey;
 $primary-light: $tcs-light-blue;
-$secondary: $tcs-grey;
 
 // Theme fonts
 $font-family-title: 'IBM Plex Sans', 'Inter', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
